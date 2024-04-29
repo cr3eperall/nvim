@@ -1,6 +1,6 @@
 return {
 	'mbbill/undotree',
 	config = function()
-		vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+		require("cr3eperall.remap").undotree()
 	end
 }

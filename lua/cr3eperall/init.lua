@@ -1,5 +1,5 @@
 require("cr3eperall.set")
-require("cr3eperall.remap")
+require("cr3eperall.remap").general()
 
 -- lazy init
 
