@@ -9,7 +9,7 @@ return {
         vim.keymap.set("i", "<C-k>", "<Up>")
         vim.keymap.set("i", "<C-l>", "<Right>")
         vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
-        vim.keymap.set({'t','n'}, '<C-/>', vim.cmd.ToggleTerm)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
     end,
     telescope = function (builtin)
         vim.keymap.set('n', '<leader>fa', builtin.find_files, {})
@@ -35,6 +35,7 @@ return {
         vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
     end,
     toggleterm = function ()
+        vim.keymap.set({'t','n'}, '<C-/>', vim.cmd.ToggleTerm)
     end,
     code_runner = function ()
         vim.keymap.set('n', '<leader>rr', '<cmd>RunCode<CR>', { noremap = true, silent = false })
@@ -64,5 +65,8 @@ return {
                 eol = '<leader>cA',
             },
         }
+    end,
+    trouble = function ()
+        vim.keymap.set('n', '<leader>t', vim.cmd.TroubleToggle)
     end
 }
