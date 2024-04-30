@@ -73,6 +73,7 @@ return {
 		"lua_ls",
 		"rust_analyzer",
         "clangd",
+        "matlab_ls",
 	},
         handlers = {
           -- this first function is the "default handler"
@@ -87,6 +88,17 @@ return {
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
           end,
+          matlab_ls = function ()
+            require('lspconfig').matlab_ls.setup({
+                filetypes = {"matlab"},
+                settings = {
+                    matlab = {
+                        installPath = "/opt/MATLAB/R2023a/"
+                    },
+                },
+                single_file_support = true
+            })
+          end
         }
       })
     end
