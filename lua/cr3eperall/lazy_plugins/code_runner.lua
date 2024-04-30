@@ -17,8 +17,14 @@ return {
             filetype = {
                 c = function ()
                     local root_dir = require("lspconfig").util.root_pattern "CMakeLists.txt"(vim.loop.cwd())
-                    local project_name = vim.fn.fnamemodify(root_dir, ":t")
-                    return ("cd "..root_dir.." && make all && echo ---------------------- && ./"..project_name.."$end")
+                    if root_dir == nil then
+                        -- Run File
+                        return ("cd $dir && c99 $fileName -o /tmp/$fileNameWithoutExt && /tmp/$fileNameWithoutExt && rm /tmp/$fileNameWithoutExt")
+                    else
+                        -- Run Code
+                        local project_name = vim.fn.fnamemodify(root_dir, ":t")
+                        return ("cd "..root_dir.." && make all && echo ---------------------- && ./"..project_name.."$end")
+                    end
                 end
             },
             project = {
