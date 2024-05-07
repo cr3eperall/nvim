@@ -9,7 +9,8 @@ return {
         vim.keymap.set("i", "<C-k>", "<Up>")
         vim.keymap.set("i", "<C-l>", "<Right>")
         vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+        vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action)
+        vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename)
     end,
     telescope = function (builtin)
         vim.keymap.set('n', '<leader>fa', builtin.find_files, {})
@@ -68,5 +69,22 @@ return {
     end,
     trouble = function ()
         vim.keymap.set('n', '<leader>t', vim.cmd.TroubleToggle)
+    end,
+    surround = function ()
+        return {
+            keymaps = {
+                insert = "<C-g>s",
+                insert_line = "<C-g>S",
+                normal = "ys",
+                normal_cur = "yss",
+                normal_line = "yS",
+                normal_cur_line = "ySS",
+                visual = "S",
+                visual_line = "gS",
+                delete = "ds",
+                change = "cs",
+                change_line = "cS",
+            },
+        }
     end
 }

@@ -25,6 +25,9 @@ return {
                         local project_name = vim.fn.fnamemodify(root_dir, ":t")
                         return ("cd "..root_dir.." && make all && echo ---------------------- && ./"..project_name.."$end")
                     end
+                end,
+                matlab = function ()
+                    return "cd $dir && octave $file$end"
                 end
             },
             project = {
