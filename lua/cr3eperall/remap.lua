@@ -1,7 +1,7 @@
 return {
     general = function()
         vim.g.mapleader = " "
-        vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
+        vim.keymap.set("n", "<leader>fe", vim.cmd.Oil)
         vim.keymap.set("i", "jk", "<Esc>")
         vim.keymap.set("n", "<leader>w", vim.cmd.w)
         vim.keymap.set("i", "<C-h>", "<Left>")
@@ -84,6 +84,28 @@ return {
                 delete = "ds",
                 change = "cs",
                 change_line = "cS",
+            },
+        }
+    end,
+    oil = function ()
+        return {
+            keymaps = {
+                ["g?"] = "actions.show_help",
+                ["<CR>"] = "actions.select",
+                ["<C-s>"] = "actions.select_vsplit",
+                ["<C-h>"] = "actions.select_split",
+                ["<C-t>"] = "actions.select_tab",
+                ["<C-p>"] = "actions.preview",
+                ["<C-c>"] = "actions.close",
+                ["<C-l>"] = "actions.refresh",
+                ["-"] = "actions.parent",
+                ["_"] = "actions.open_cwd",
+                ["`"] = "actions.cd",
+                ["~"] = "actions.tcd",
+                ["gs"] = "actions.change_sort",
+                ["gx"] = "actions.open_external",
+                ["g."] = "actions.toggle_hidden",
+                ["g\\"] = "actions.toggle_trash",
             },
         }
     end
