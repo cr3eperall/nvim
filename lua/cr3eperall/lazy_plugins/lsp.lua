@@ -68,13 +68,14 @@ return {
 
       require('mason-lspconfig').setup({
         ensure_installed = {
-		"tsserver",
-		"eslint",
-		"lua_ls",
-		"rust_analyzer",
-        "clangd",
-        "matlab_ls",
-	},
+            "tsserver",
+            "eslint",
+            "lua_ls",
+            "rust_analyzer",
+            "clangd",
+            "matlab_ls",
+        },
+        automatic_installation = true,
         handlers = {
           -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
@@ -99,7 +100,7 @@ return {
                 single_file_support = true
             })
           end
-        }
+        },
       })
     end
   }

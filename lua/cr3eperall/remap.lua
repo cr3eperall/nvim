@@ -2,7 +2,6 @@ return {
     general = function()
         vim.g.mapleader = " "
         vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
-        vim.keymap.set("i", "jk", "<Esc>")
         vim.keymap.set("n", "<leader>w", vim.cmd.w)
         vim.keymap.set("i", "<C-h>", "<Left>")
         vim.keymap.set("i", "<C-j>", "<Down>")
@@ -16,7 +15,32 @@ return {
         vim.keymap.set('n', '<leader>ff', builtin.git_files, {})
     end,
     better_escape = function ()
-        return {"jk", "kj"}
+        return {
+            i = {
+                j = {
+                    k = "<Esc>",
+                },
+                k = {
+                    j = "<Esc>",
+                },
+            },
+            t = {
+                j = {
+                    k = "<Esc>",
+                },
+                k = {
+                    j = "<Esc>",
+                },
+            },
+            v = {
+                j = {
+                    k = "<Esc>",
+                },
+                k = {
+                    j = "<Esc>",
+                },
+            },
+        }
     end,
     fugitive = function ()
         vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
